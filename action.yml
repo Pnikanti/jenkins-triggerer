@@ -1,0 +1,27 @@
+name: 'Jenkins Triggerer'
+description: 'Trigger Jenkins job'
+
+inputs:
+  JENKINS_URL:
+    description: 'Jenkins server url'
+    required: true
+  JENKINS_JOB:
+    description: 'Jenkins job to trigger'
+    required: true
+  JENKINS_JOB_PARAMETERS:
+    description: "Job parameters in JSON string format, i.e '{'param1': 'value1', 'param2': 'value2'}' "
+    required: false
+
+outputs:
+  job_status:
+    description: 'Build status'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ github.event.inputs.JENKINS_URL }}
+    - ${{ secrets.JENKINS_USERNAME }}
+    - ${{ secrets.JENKINS_API_TOKEN }}
+    - ${{ github.event.inputs.JENKINS_JOB }}
+    - ${{ github.event.inputs.JENKINS_JOB_PARAMETERS }}
