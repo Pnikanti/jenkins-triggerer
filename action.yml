@@ -26,8 +26,8 @@ outputs:
   job_status:
     description: 'Build status'
 
+if: inputs.RUN_IN_DOCKER == true
 runs:
-  if: inputs.RUN_IN_DOCKER == true
   using: 'docker'
   image: 'Dockerfile'
   args:
@@ -36,7 +36,9 @@ runs:
     - ${{ inputs.JENKINS_API_TOKEN }}
     - ${{ inputs.JENKINS_JOB }}
     - ${{ inputs.JENKINS_JOB_PARAMETERS }}
-  if: inputs.RUN_IN_DOCKER == false
+    
+if: inputs.RUN_IN_DOCKER == false
+runs:
   using: 'composite'
   steps:
     - run: |
