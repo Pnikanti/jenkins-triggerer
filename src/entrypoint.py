@@ -1,9 +1,8 @@
 import sys
+import time
 import json
 import httpx
-import time
 from jenkins import Jenkins, JenkinsException, NotFoundException
-import jenkins
 from requests.models import HTTPError
 
 def main(
