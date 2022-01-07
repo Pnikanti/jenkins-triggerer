@@ -5,6 +5,20 @@ Derived from [**build-jenkins-job**](https://github.com/GoldenspearLLC/build-jen
 
 🚧 Documentation under construction 🚧
 
+## Example usage (.github/workflows/action.yml)
+
+    jobs:
+        trigger-jenkins-job:
+            steps:
+            - name: Trigger Jenkins Job
+                uses: Pnikanti/jenkins-triggerer@master
+                with:
+                    JENKINS_URL: ${{ secrets.JENKINS_URL }}
+                    JENKINS_USERNAME: ${{ secrets.JENKINS_TOKEN }}
+                    JENKINS_API_TOKEN: "<username>"
+                    JENKINS_JOB: "<job-name>"
+                    JENKINS_JOB_PARAMETERS: "{'parameter-key-1': 'value-1', 'parameter-key-2': 'value-2'}"
+
 ## Parameters
 **\* Required parameter**
 ### JENKINS_URL*:
@@ -23,17 +37,3 @@ Derived from [**build-jenkins-job**](https://github.com/GoldenspearLLC/build-jen
 * SUCCESS
 * FAILURE
 * ABORTED
-
-## Usage
-
-    jobs:
-    run_jobs
-        steps:
-        - name: Run Jenkins Job
-            uses: Pnikanti/jenkins-triggerer@master
-            with:
-                jenkins-url: ${{ secrets.JENKINS_URL }}
-                jenkins-token: ${{ secrets.JENKINS_TOKEN }}
-                user: "jenkins-username"
-                job-path: "job/folder_name/job/job_name"
-                job-params: "{'param1': 'value1', 'param2': 'value2'}"
