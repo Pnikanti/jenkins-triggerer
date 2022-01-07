@@ -31,7 +31,7 @@ def main(
 
     version = server.get_version()
     print(f'Running as "{user}" with Jenkins version "{version}"')
-    job = "".join(jenkins_job.split('job/'))
+    job = ''.join(jenkins_job.split('job/'))
 
     try:
         server.build_job(
@@ -49,7 +49,7 @@ def main(
     while 'executable' not in (info := httpx.get(queue).json()):
         time.sleep(2)
 
-    build_number = info["executable"]["number"]
+    build_number = info['executable']['number']
     print(f'Build number: {build_number}')
     while not (status := server.get_build_info(name=job, number=build_number)['result']):
         time.sleep(2)
