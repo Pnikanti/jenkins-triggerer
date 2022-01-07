@@ -1,5 +1,5 @@
 name: 'Jenkins Triggerer'
-description: 'Trigger Jenkins job'
+description: 'Trigger Jenkins jobs with ease! Derived from build-jenkins-job action.'
 
 inputs:
   JENKINS_URL:

@@ -5,16 +5,19 @@ Derived from [**build-jenkins-job**](https://github.com/GoldenspearLLC/build-jen
 
 🚧 Documentation under construction 🚧
 
-## Parameters
 **\* Required parameter**
-### JENKINS_URL*:
-    Jenkins server url, e.g. http://<jenkins-server>
+
+## Secrets
 ### JENKINS_USERNAME*:
     Jenkins username
 ### JENKINS_API_TOKEN*:
     Jenkins user API token. Can be generated via <jenkins-server>/user/<username>/configure
+
+## Parameters
+### JENKINS_URL*:
+    Jenkins server url, e.g. http://<jenkins-server>
 ### JENKINS_JOB*:
-    Jenkins job to trigger. Works with folders also, e.g. job/<job-name> or <job-name> or <folder-name>/<job-name> are all valid ways to provide job.
+    Jenkins job to trigger. Works with folders also, e.g. job/<job-name> or <job-name> or <folder-name>/<job-name> are all valid ways to provide a job.
 ### JENKINS_JOB_PARAMETERS:
     Jenkins job parameters. Given in JSON string notation. E.g. "{'parameter-key-1': 'value-1', 'parameter-key-2': 'value-2'}"
     
