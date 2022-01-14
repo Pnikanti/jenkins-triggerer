@@ -2,10 +2,6 @@ name: 'Jenkins Triggerer'
 description: 'Trigger Jenkins jobs with ease! Derived from build-jenkins-job action.'
 
 inputs:
-  RUN_IN_DOCKER:
-    description: 'Run in Docker or inside host machine'
-    required: true
-    default: false
   JENKINS_URL:
     description: 'Jenkins server url'
     required: true
@@ -26,21 +22,6 @@ outputs:
   job_status:
     description: 'Build status'
 
-if: inputs.RUN_IN_DOCKER == true
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.JENKINS_URL }}
-    - ${{ inputs.JENKINS_USERNAME }}
-    - ${{ inputs.JENKINS_API_TOKEN }}
-    - ${{ inputs.JENKINS_JOB }}
-    - ${{ inputs.JENKINS_JOB_PARAMETERS }}
-    
-if: inputs.RUN_IN_DOCKER == false
-runs:
-  using: 'composite'
-  steps:
-    - run: |
-      pip install -r requirements.txt
-      python src/entrypoint.py ${{ inputs.JENKINS_URL }} ${{ inputs.JENKINS_USERNAME }} ${{ inputs.JENKINS_API_TOKEN }} ${{ inputs.JENKINS_JOB }} ${{ inputs.JENKINS_JOB_PARAMETERS }}
+  using: 'node16'
+  main: 'entrypoint.js'

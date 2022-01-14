@@ -1,8 +1,6 @@
 # Jenkins Triggerer
 ## Trigger Jenkins jobs with ease 😎
 
-Derived from [**build-jenkins-job**](https://github.com/GoldenspearLLC/build-jenkins-job) action.
-
 🚧 Documentation under construction 🚧
 
 ## Example usage (.github/workflows/action.yml)

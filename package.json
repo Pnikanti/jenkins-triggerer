@@ -1,0 +1,16 @@
+{
+    "name": "trigger-jenkins-job",
+    "version": "0.1.0",
+    "description": "Trigger Jenkins jobs with ease!",
+    "main": "entrypoint.js",
+    "scripts": {
+        "start": "node entrypoint.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Patrick Nikanti",
+    "license": "MIT",
+    "dependencies": {
+        "@actions/core": "^1.6.0",
+        "jenkins": "^0.28.1"
+    }
+}
