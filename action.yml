@@ -1,5 +1,5 @@
 name: 'Jenkins Triggerer'
-description: 'Trigger Jenkins jobs with ease! Derived from build-jenkins-job action.'
+description: 'Trigger Jenkins jobs with ease!'
 
 inputs:
   JENKINS_URL:
@@ -9,13 +9,13 @@ inputs:
     description: 'Jenkins username'
     required: true
   JENKINS_API_TOKEN:
-    description: 'Jenkins user API token. Can be generated via <jenkins-server>/user/<username>/configure'
+    description: 'Jenkins user API token. Can be generated from <jenkins-server>/user/<username>/configure'
     required: true
   JENKINS_JOB:
     description: 'Jenkins job to trigger'
     required: true
   JENKINS_JOB_PARAMETERS:
-    description: "Job parameters in JSON string format, i.e '{'param1': 'value1', 'param2': 'value2'}' "
+    description: 'Job parameters in JSON string format, i.e "{"key-1": "value-1", "key-2": "value-2"}"'
     required: false
 
 outputs:
@@ -23,5 +23,5 @@ outputs:
     description: 'Build status'
 
 runs:
-  using: 'node16'
-  main: 'entrypoint.js'
+  using: 'node12'
+  main: 'dist/index.js'

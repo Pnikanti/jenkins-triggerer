@@ -1,16 +1,21 @@
 {
-    "name": "trigger-jenkins-job",
-    "version": "0.1.0",
+    "name": "jenkins-triggerer",
+    "version": "0.1.2",
     "description": "Trigger Jenkins jobs with ease!",
-    "main": "entrypoint.js",
+    "main": "src/index.js",
     "scripts": {
-        "start": "node entrypoint.js",
+        "build": "ncc build src/index.js -o dist",
+        "start": "node src/index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Patrick Nikanti",
     "license": "MIT",
     "dependencies": {
         "@actions/core": "^1.6.0",
+        "dotenv": "^12.0.4",
         "jenkins": "^0.28.1"
+    },
+    "devDependencies": {
+        "@vercel/ncc": "^0.33.1"
     }
 }
