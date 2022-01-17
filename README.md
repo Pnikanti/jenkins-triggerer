@@ -1,6 +1,8 @@
 # Jenkins Triggerer Action
 Trigger Jenkins jobs with ease! Derived from [**build-jenkins-job**](https://github.com/GoldenspearLLC/build-jenkins-job) action, but rewritten in JavaScript. Running in JavaScript makes it easier for using this action in low-powered machines, e.g. in Raspberry PIs, because [**JavaScript Actions can be run natively.**](https://docs.github.com/en/actions/creating-actions/about-custom-actions#javascript-actions)
 
+![Jenkins trigger in action](https://i.imgur.com/YhLvWoF.gif)
+
 ### Example
     - name: Trigger Jenkins job
     uses: Pnikanti/jenkins-triggerer@master
